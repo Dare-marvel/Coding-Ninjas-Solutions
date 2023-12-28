@@ -1,11 +1,26 @@
 ### [Frog Jump](https://www.codingninjas.com/studio/problems/frog-jump_3621012)
 
-## Explanation:
+## Explanation (Recursion):
+This C++ code is a solution to the problem of finding the minimum total cost for a frog to reach the top of a set of heights, where the frog can either jump one or two steps at a time, and the cost of each jump is the absolute difference in heights. Here's a detailed explanation:
+
+1. **Including Libraries**: The code begins with `#include <bits/stdc++.h>`, which is a header file in C++ that includes most standard library files.
+
+2. **Helper Function**: A helper function named `helper` is defined, which takes an index `ind` and a reference to a vector of integers `heights`. This function is used to calculate the minimum cost for the frog to reach the height at index `ind`.
+
+3. **Base Case**: If `ind` is 0, the function returns 0. This is because if the frog is already at the first height, no jumps are needed, so the cost is 0.
+
+4. **Recursive Case**: If `ind` is not 0, the function calculates two possible costs: `left` and `right`. `left` is the cost of jumping from the previous height, which is the cost of reaching the previous height plus the absolute difference in heights. `right` is the cost of jumping from the height before the previous height, which is the cost of reaching that height plus the absolute difference in heights. However, `right` is only calculated if `ind` is greater than 1, because the frog can't jump two steps from the first height.
+
+5. **Minimum Cost**: The function returns the minimum of `left` and `right`, which is the minimum cost for the frog to reach the height at index `ind`.
+
+6. **frogJump Function**: The `frogJump` function is defined, which takes an integer `n` and a reference to a vector of integers `heights`, and returns an integer. This function simply calls the `helper` function with `n-1` as the index, and returns the result. This is because the frog wants to reach the top, which is the last height in `heights`, and since indexing is 0-based, the index of the last height is `n-1`.
 
 ## Time and Space Complexity:
 ### `Time Complexity`:
+The time complexity of the code is **O(2^n)**, because in the worst case, the `helper` function makes two recursive calls in each call.
 
 ### `Space Complexity`:
+The space complexity is **O(n)**, because in the worst case, the maximum depth of the recursion tree is `n`, which is the maximum amount of space needed on the call stack.
 
 ## Code:
 ## Recursion ( 3/5 test cases passed):
