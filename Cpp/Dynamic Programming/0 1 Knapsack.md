@@ -1,11 +1,6 @@
 ### [0 1 Knapsack](https://www.codingninjas.com/studio/problems/0-1-knapsack_920542?source=youtube&campaign=striver_dp_videos&utm_source=youtube&utm_medium=affiliate&utm_campaign=striver_dp_videos)
 
-## Explanation:
-
-## Time and Space Complexity:
-### `Time Complexity`:
-
-### `Space Complexity`:
+## [Explanation](https://takeuforward.org/data-structure/0-1-knapsack-dp-19/)
 
 ## Tabulation:
 ```cpp
