@@ -4,7 +4,26 @@
 
 ## Tabulation:
 ```cpp
+#include <climits>
+#include <vector>
 
+int unboundedKnapsack(int n, int w, vector<int> &profit, vector<int> &weight){
+    vector<vector<int>> dp(n,vector<int>(w+1,0));
+    
+    for(int W=0;W<=w;W++) dp[0][W] = (W/weight[0])*profit[0];
+
+    for(int ind=1;ind<n;ind++){
+        for(int wt=0;wt<=w;wt++){
+            int notTAke = dp[ind-1][wt];
+            int take = INT_MIN;
+            if(weight[ind] <= wt) take = profit[ind] + dp[ind][wt-weight[ind]];
+
+            dp[ind][wt] = max(take,notTAke);
+        }
+    }
+
+    return dp[n-1][w];
+}
 ```
 
 ## Memoization:
